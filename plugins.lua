@@ -97,7 +97,8 @@ local plugins = {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
     ft = {"python"},
     opts = function()
       return require "custom.configs.null-ls"
