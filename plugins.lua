@@ -104,5 +104,9 @@ local plugins = {
       return require "custom.configs.null-ls"
     end,
   },
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = false,
+  },
 }
 return plugins
