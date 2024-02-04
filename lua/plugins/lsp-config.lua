@@ -10,7 +10,11 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      ensure_installed = { "lua_ls", "rust_analyzer" },
+      ensure_installed = {
+        "lua_ls",
+        "rust_analyzer",
+        "pyright",
+      },
     },
   },
   {
@@ -22,6 +26,14 @@ return {
       local lspconfig = require("lspconfig")
 
       lspconfig.lua_ls.setup({
+        capabilities = capabilities
+      })
+
+      lspconfig.rust_analyzer.setup({
+        capabilities = capabilities
+      })
+
+      lspconfig.pyright.setup({
         capabilities = capabilities
       })
 
