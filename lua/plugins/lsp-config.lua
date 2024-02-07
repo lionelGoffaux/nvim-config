@@ -14,6 +14,10 @@ return {
         "ruff",
         "debugpy",
         "black",
+        "typescript-language-server",
+        "tailwindcss-language-server",
+        "eslint-lsp",
+        "prettierd",
       }
 
       vim.api.nvim_create_user_command("MasonInstallAll", function()
@@ -21,7 +25,6 @@ return {
           vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))
         end
       end, {})
-
     end,
   },
   {
@@ -35,16 +38,28 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local lspconfig = require("lspconfig")
 
       lspconfig.lua_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
 
-     lspconfig.pyright.setup({
-        capabilities = capabilities
+      lspconfig.pyright.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.tsserver.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.tailwindcss.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.eslint.setup({
+        capabilities = capabilities,
       })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
