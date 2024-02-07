@@ -7,6 +7,7 @@ return {
 
       local ensure_installed = {
         "lua-language-server",
+        "stylua",
         "rust-analyzer",
         "pyright",
         "flake8",
