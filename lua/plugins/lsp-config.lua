@@ -4,6 +4,23 @@ return {
     lazy = false,
     config = function()
       require("mason").setup()
+
+      local ensure_installed = {
+        "lua-language-server",
+        "rust-analyzer",
+        "pyright",
+        "flake8",
+        "ruff",
+        "debugpy",
+        "black",
+      }
+
+      vim.api.nvim_create_user_command("MasonInstallAll", function()
+        if ensure_installed and #ensure_installed > 0 then
+          vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))
+        end
+      end, {})
+
     end,
   },
   {
@@ -11,11 +28,6 @@ return {
     lazy = false,
     opts = {
       auto_install = true,
-      ensure_installed = {
-        "lua_ls",
-        "rust_analyzer",
-        "pyright",
-      },
     },
   },
   {
