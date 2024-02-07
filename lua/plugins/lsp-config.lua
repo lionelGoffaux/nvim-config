@@ -43,11 +43,7 @@ return {
         capabilities = capabilities
       })
 
-      lspconfig.rust_analyzer.setup({
-        capabilities = capabilities
-      })
-
-      lspconfig.pyright.setup({
+     lspconfig.pyright.setup({
         capabilities = capabilities
       })
 
