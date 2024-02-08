@@ -11,6 +11,19 @@ return {
     end,
   },
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    lazy = false,
+    config = function()
+      require("mason-nvim-dap").setup({
+        handlers = {},
+      })
+    end,
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+  },
+  {
     "mfussenegger/nvim-dap",
     dependencies = {
       "rcarriga/nvim-dap-ui",
@@ -38,5 +51,5 @@ return {
       vim.keymap.set("n", "<Leader>dx", ":DapTerminate<CR>")
       vim.keymap.set("n", "<Leader>do", ":DapStepOver<CR>")
     end,
-  }
+  },
 }

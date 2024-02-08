@@ -18,6 +18,9 @@ return {
         "tailwindcss-language-server",
         "eslint-lsp",
         "prettierd",
+        "clangd",
+        "clang-format",
+        "codelldb",
       }
 
       vim.api.nvim_create_user_command("MasonInstallAll", function()
@@ -59,6 +62,10 @@ return {
       })
 
       lspconfig.eslint.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.clangd.setup({
         capabilities = capabilities,
       })
 
