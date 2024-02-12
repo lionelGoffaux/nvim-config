@@ -9,7 +9,7 @@ return {
         "lua-language-server",
         "stylua",
         "rust-analyzer",
-        "pyright",
+        "jedi-language-server",
         "flake8",
         "ruff",
         "debugpy",
@@ -49,7 +49,7 @@ return {
         capabilities = capabilities,
       })
 
-      lspconfig.pyright.setup({
+      lspconfig.jedi_language_server.setup({
         capabilities = capabilities,
       })
 
