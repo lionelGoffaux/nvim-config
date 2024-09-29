@@ -21,6 +21,7 @@ return {
         "clangd",
         "clang-format",
         "codelldb",
+        "zls",
       }
 
       vim.api.nvim_create_user_command("MasonInstallAll", function()
@@ -66,6 +67,10 @@ return {
       })
 
       lspconfig.clangd.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.zls.setup({
         capabilities = capabilities,
       })
 

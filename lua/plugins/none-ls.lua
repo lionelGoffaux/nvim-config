@@ -11,6 +11,7 @@ return {
         null_ls.builtins.formatting.black,
         require("none-ls.diagnostics.ruff"),
         require("none-ls.diagnostics.flake8"),
+        null_ls.builtins.formatting.zigfmt,
         null_ls.builtins.formatting.prettierd,
         null_ls.builtins.formatting.clang_format,
 			},
