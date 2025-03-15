@@ -9,6 +9,9 @@ vim.diagnostic.config({
 	virtual_text = false,
 })
 
+-- toggle between buffers
+vim.keymap.set('n', '<leader><leader>', '<c-^>', { noremap = true, silent = true })
+
 -- Navigate vim panes better
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
