@@ -4,28 +4,27 @@ return {
 		ft = "rust",
 	},
 	{
-		"simrat39/rust-tools.nvim",
+		"mrcjkb/rustaceanvim",
+		version = "^5", -- Recommended
+		lazy = false, -- This plugin is already lazy
 		ft = "rust",
-		dependencies = "neovim/nvim-lspconfig",
-		opts = {
-			server = {
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
-				on_attach = function(client, _)
-					client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
-				end,
-				settings = {
-					-- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-					["rust-analyzer"] = {
-						-- enable clippy on save
-						checkOnSave = {
-							command = "clippy",
+		config = function(_, _)
+			vim.g.rustaceanvim = {
+				-- LSP configuration
+				server = {
+					on_attach = function(client, _)
+						client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
+					end,
+					default_settings = {
+						-- rust-analyzer language server configuration
+						["rust-analyzer"] = {
+							checkOnSave = {
+								command = "clippy",
+							},
 						},
 					},
 				},
-			},
-		},
-		config = function(_, opts)
-			require("rust-tools").setup(opts)
+			}
 		end,
 	},
 	{
