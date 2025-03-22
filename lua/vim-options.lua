@@ -4,6 +4,9 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.g.mapleader = " "
+vim.wo.number = true
+vim.opt.wrap = false
+vim.opt.scrolloff = 8
 
 -- disable default errors
 vim.diagnostic.config({
@@ -32,11 +35,15 @@ vim.keymap.set("v", "<leader>p", '"+p', { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>P", '"+P', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>", { noremap = true, silent = true })
-vim.wo.number = true
 
 vim.keymap.set("n", "<leader>h", function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { noremap = true, silent = true })
 
-vim.opt.wrap = false
-vim.opt.scrolloff = 8
+-- no arrow keys --- force yourself to use the home row
+vim.keymap.set('n', '<up>', '<nop>')
+vim.keymap.set('n', '<down>', '<nop>')
+vim.keymap.set('i', '<up>', '<nop>')
+vim.keymap.set('i', '<down>', '<nop>')
+vim.keymap.set('i', '<left>', '<nop>')
+vim.keymap.set('i', '<right>', '<nop>')
