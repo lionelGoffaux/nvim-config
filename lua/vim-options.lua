@@ -8,9 +8,8 @@ vim.wo.number = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 
--- disable default errors
 vim.diagnostic.config({
-	virtual_text = false,
+    virtual_text = true,
 })
 
 -- toggle between buffers
@@ -37,5 +36,5 @@ vim.keymap.set("v", "<leader>P", '"+P', { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>h", function()
-	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { noremap = true, silent = true })
