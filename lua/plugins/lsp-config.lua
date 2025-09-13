@@ -47,49 +47,37 @@ return {
         lazy = false,
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            local on_attach = function(client, _)
-                client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
-            end
             local lspconfig = require("lspconfig")
-
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
-                on_attach = on_attach,
             })
 
             lspconfig.jedi_language_server.setup({
                 capabilities = capabilities,
-                on_attach = on_attach,
             })
 
             lspconfig.ts_ls.setup({
                 capabilities = capabilities,
-                on_attach = on_attach,
             })
 
             lspconfig.tailwindcss.setup({
                 capabilities = capabilities,
-                on_attach = on_attach,
             })
 
             lspconfig.eslint.setup({
                 capabilities = capabilities,
-                on_attach = on_attach,
             })
 
             lspconfig.clangd.setup({
                 capabilities = capabilities,
-                on_attach = on_attach,
             })
 
             lspconfig.zls.setup({
                 capabilities = capabilities,
-                on_attach = on_attach,
             })
 
             lspconfig.gopls.setup({
                 capabilities = capabilities,
-                on_attach = on_attach,
                 settings = {
                     gopls = {
                         completeUnimported = true,

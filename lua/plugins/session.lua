@@ -1,20 +1,25 @@
 return {
-	{
-		"rmagatti/auto-session",
-		config = function()
-			require("auto-session").setup({
-				auto_session_suppress_dirs = { "~/", "/" },
-				session_lens = {
-					-- If load_on_setup is set to false, one needs to eventually call `require("auto-session").setup_session_lens()` if they want to use session-lens.
-					buftypes_to_ignore = {}, -- list of buffer types what should not be deleted from current session
-					load_on_setup = true,
-					theme_conf = { border = true },
-					previewer = false,
-				},
-				vim.keymap.set("n", "<Leader>ls", require("auto-session.session-lens").search_session, {
-					noremap = true,
-				}),
-			})
-		end,
+	"rmagatti/auto-session",
+    lazy = false,
+	keys = {
+		-- Will use Telescope if installed or a vim.ui.select picker otherwise
+		{ "<leader>wr", "<cmd>AutoSession search<CR>", desc = "Session search" },
+		{ "<leader>ws", "<cmd>AutoSession save<CR>", desc = "Save session" },
+		{ "<leader>wa", "<cmd>AutoSession toggle<CR>", desc = "Toggle autosave" },
+	},
+	opts = {
+		suppressed_dirs = { "~/", "/" },
+		-- The following are already the default values, no need to provide them if these are already the settings you want.
+		session_lens = {
+			picker = nil, -- "telescope"|"snacks"|"fzf"|"select"|nil Pickers are detected automatically but you can also manually choose one. Falls back to vim.ui.select
+			mappings = {
+				-- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
+				delete_session = { "i", "<C-d>" },
+				alternate_session = { "i", "<C-s>" },
+				copy_session = { "i", "<C-y>" },
+			},
+			-- Telescope only: If load_on_setup is false, make sure you use `:AutoSession search` to open the picker as it will initialize everything first
+			load_on_setup = true,
+		},
 	},
 }
