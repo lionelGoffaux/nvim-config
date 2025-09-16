@@ -1,5 +1,6 @@
 return {
 	"nvimtools/none-ls.nvim",
+	lazy = false,
 	dependencies = {
 		"nvimtools/none-ls-extras.nvim",
 	},
@@ -18,7 +19,5 @@ return {
 				null_ls.builtins.formatting.golines,
 			},
 		})
-
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 	end,
 }
