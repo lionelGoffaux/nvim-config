@@ -47,36 +47,36 @@ return {
 		lazy = false,
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({
+			local lspconfig = vim.lsp.config
+			lspconfig("lua_ls", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.jedi_language_server.setup({
+			lspconfig("jedi_language_server", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.ts_ls.setup({
+			lspconfig("ts_ls", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.tailwindcss.setup({
+			lspconfig("tailwindcss", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.eslint.setup({
+			lspconfig("eslint", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.clangd.setup({
+			lspconfig("clangd", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.zls.setup({
+            lspconfig("zls", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.gopls.setup({
+			lspconfig("gopls", {
 				capabilities = capabilities,
 				cmd = { "gopls" },
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },
