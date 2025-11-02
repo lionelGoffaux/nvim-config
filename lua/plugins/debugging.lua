@@ -6,8 +6,13 @@ return {
 			"mfussenegger/nvim-dap",
 		},
 		config = function()
+			local dap_python = require("dap-python")
+			vim.keymap.set("n", "<Leader>dr", function()
+				dap_python.test_method()
+			end)
+
 			local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-			require("dap-python").setup(path)
+			dap_python.setup(path)
 		end,
 	},
 	{
@@ -47,10 +52,12 @@ return {
 				dapui.close()
 			end
 
-			vim.keymap.set("n", "<Leader>dt", ":DapToggleBreakpoint<CR>")
+			vim.keymap.set("n", "<Leader>db", ":DapToggleBreakpoint<CR>")
+			-- vim.keymap.set("n", "<Leader>dbc", ":DapClearBreakpoints<CR>")
 			vim.keymap.set("n", "<Leader>dc", ":DapContinue<CR>")
 			vim.keymap.set("n", "<Leader>dx", ":DapTerminate<CR>")
-			vim.keymap.set("n", "<Leader>do", ":DapStepOver<CR>")
+			vim.keymap.set("n", "<Leader>ds", ":DapStepOver<CR>")
+			vim.keymap.set("n", "<Leader>di", ":DapStepInto<CR>")
 		end,
 	},
 }
