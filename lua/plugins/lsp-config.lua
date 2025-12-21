@@ -80,7 +80,6 @@ return {
 				capabilities = capabilities,
 				cmd = { "gopls" },
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },
-				root_dir = { "go.work", "go.mod", ".git" },
 				settings = {
 					gopls = {
 						completeUnimported = true,
